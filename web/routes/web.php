@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Laravel', function () {
-    return view('Laravel');
+Route::get('/Poster', function () {
+    return view('PostEven');
 });
 Route::get('/register', [HomeController::class, 'register']);
