@@ -20,4 +20,6 @@ Route::get('/', function () {
 Route::get('/Laravel', function () {
     return view('Laravel');
 });
-Route::get('/register', [HomeController::class, 'register']);
+Route::get('/register', function () {
+    return view('register');
+});
