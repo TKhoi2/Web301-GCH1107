@@ -47,7 +47,7 @@
     </div>
   </div>
   <button class="login">Login </button>
-  <div class="footer"><span>Signup</span><span>Forgot Password?</span></div>
+  <div class="footer"><span><a href="http://127.0.0.1:8000/register">Signup</a></span><span>Forgot Password?</span></div>
 </div>
 <!-- partial -->
   
