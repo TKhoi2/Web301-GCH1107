@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/Poster', function () {
     return view('PostEven');
 });
+
 Route::get('/register', function () {
     return view('register');
 });
