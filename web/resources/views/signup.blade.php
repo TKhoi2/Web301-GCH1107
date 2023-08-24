@@ -12,39 +12,40 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+        <form action="/signup" method="POST">
+          @csrf
           <!-- Username input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Username:</label>
-            <input type="username" id="form3Example3" class="form-control form-control-lg"
+            <input name="username" type="username" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter username" />
           </div>
 
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Email address:</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
+            <input name="email" type="email" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter a valid email address" />
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <label class="form-label" for="form3Example4">Password:</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
+            <input name="password" type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter password" />
           </div>
 
           <!--Confirm Password input -->
           <div class="form-outline mb-3">
             <label class="form-label" for="form3Example4">Confirm Password:</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
+            <input name="confirmpassword" type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter password" />
           </div>
 
           
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg"
+            <button class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Sign Up</button>
           </div>
 
@@ -56,7 +57,7 @@
     class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
     <!-- Copyright -->
     <div class="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
+      Copyright © 2023. All rights reserved.
     </div>
     <!-- Copyright -->
 
