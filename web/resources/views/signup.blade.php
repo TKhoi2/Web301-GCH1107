@@ -1,5 +1,11 @@
 @auth
-  <p>Chúc mừng đã bạn tạo tài khoản</p>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<h1>Chúc mừng đã bạn tạo tài khoản</h1>
+<h2>Chào Mừng bạn đến với RealBook</h2>
+<h3>vì là lần đầu đăng nhập nên chúng tôi muốn bạn đăng nhập lại</h3>
   <a href="{{ route('login') }}">
     <form action="/logout" method="POST">
         @csrf
