@@ -1,6 +1,6 @@
 @auth
-<p>Chúc mừng bạn đã đăng nhập</p>
-<p>Xin chào người dùng:</p>
+<h2>Chúc mừng bạn đã đăng nhập</h2>
+<h2>Xin chào người dùng: {{Auth::user()->name}}</h2>
   <div style="border: 3px solid black;">
     <h2>Tạo 1 bài viết mới</h2>
     <form action="/create-post" method="POST">
