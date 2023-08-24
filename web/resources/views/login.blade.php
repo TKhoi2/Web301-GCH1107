@@ -1,14 +1,92 @@
-<!-- Latest compiled and minified CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 @auth
-<p>Congrats you are logged in</p>
+<p>Chúc mừng bạn đã đăng nhập</p>
+<p>Xin chào người dùng:</p>
+  <div style="border: 3px solid black;">
+    <h2>Tạo 1 bài viết mới</h2>
+    <form action="/create-post" method="POST">
+      @csrf
+      <input type="text" name="title" placeholder="Tiêu đề">
+      <textarea name="body" placeholder="Nội dung cần viết"></textarea>
+      <button>Lưu bài viết</button>
+    </form>
+  </div>
+
+        <div style="border: 3px solid black;">
+          <h2>các post đã follow</h2>
+          @foreach ($Follows as $follow)
+              <div style="background-color: gray; padding: 10px; margin: 10px;">
+                  <h3>{{ $follow['title'] }} bởi {{ $follow->user->name }}</h3>
+                  <p>{{ $follow['body'] }}</p>
+                  </form>
+                  <form action="/follow-post/{{ $follow->id }}" method="POST">
+                      @csrf
+                      @method('PATCH')
+                      <button>Hủy Theo dõi</button>
+
+                  </form>
+              </div>
+          @endforeach
+      </div>
+
+
+        <div style="border: 3px solid black;">
+            <h2>các post của bạn</h2>
+            @foreach ($myposts as $mypost)
+                <div style="background-color: gray; padding: 10px; margin: 10px;">
+                    <h3>{{ $mypost['title'] }} bởi {{ $mypost->user->name }}</h3>
+                    {{ $mypost['body'] }}
+                    <p><a href="/edit-post/{{ $mypost->id }}">chỉnh xửa</a></p>
+                    <form action="/delete-post/{{ $mypost->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button>Xóa bài</button>
+                    </form>
+                </div>
+            @endforeach
+        </div>
+
+
+
+
+      <div style="border: 3px solid black;">
+          <h2>post của mọi người</h2>
+          @foreach ($posts as $post)
+              <div style="background-color: gray; padding: 10px; margin: 10px;">
+                  <h3>{{ $post['title'] }} bởi {{ $post->user->name }}</h3>
+                  {{ $post['body'] }}
+                  @if ($post->user->id == auth()->user()->id)
+                      <p><a href="/edit-post/{{ $post->id }}">chỉnh xửa</a></p>
+                      <form action="/delete-post/{{ $post->id }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button>Xóa bài</button>
+                      </form>
+                  @endif
+                  <form action="/follow-post/{{ $post->id }}" method="POST">
+                      @csrf
+                      @method('PATCH')
+                      @if ($post->userfollowed->contains('postId', auth()->user()->id))
+                          <button>Hủy Theo dõi</button>
+                      @else
+                          <button>Theo dõi</button>
+                      @endif
+                  </form>
+              </div>
+          @endforeach
+</div>
+
+
+
+
 <form action="/logout" method="POST">
   @csrf
   <button>LogOut</button>
 </form>
 @else
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -18,7 +96,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="/login" method="POST">
+        <form method="POST" action="{{ route('login') }}">
           @csrf
           <!-- Username input -->
           <div class="form-outline mb-4">
@@ -36,7 +114,7 @@
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              style="submit; padding-left: 2.5rem; padding-right: 2.5rem;" >Login</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="http://127.0.0.1:8000/signup"
                 class="link-danger">Register</a></p>
           </div>

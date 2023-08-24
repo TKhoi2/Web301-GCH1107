@@ -1,3 +1,16 @@
+@auth
+  <p>Chúc mừng đã bạn tạo tài khoản</p>
+  <a href="{{ route('login') }}">
+    <form action="/logout" method="POST">
+        @csrf
+        <button>Bấm vào đây để đăng nhập</button>
+    </form> 
+  </a>
+
+
+
+  
+@else
 <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Latest compiled JavaScript -->
@@ -79,3 +92,5 @@
     <!-- Right -->
   </div>
 </section>
+
+@endauth
