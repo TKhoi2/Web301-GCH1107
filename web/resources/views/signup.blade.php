@@ -17,7 +17,7 @@
           <!-- Username input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Username:</label>
-            <input name="username" type="username" id="form3Example3" class="form-control form-control-lg"
+            <input name="name" type="name" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter username" />
           </div>
 
