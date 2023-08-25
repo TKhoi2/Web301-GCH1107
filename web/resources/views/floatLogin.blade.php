@@ -8,6 +8,7 @@
     >
         @auth
         <h2>Chào mừng {{auth()->user()->name}}</h2>
+        <h2>Email: {{auth()->user()->email}}</h2>
         <form action="/logout" method="POST">
             @csrf
             <button>Đăng xuất</button>
