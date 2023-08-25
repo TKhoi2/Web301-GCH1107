@@ -22,11 +22,11 @@ Route::get('/', function () {
     $myposts = []; 
     $followPosts = [];
     if (auth()->check()) {
-        $myposts = auth()->user()->usersCoolPosts()->latest()->get();
+        $myposts = auth()->user()->usersCoolPosts->latest()->get();
         $followPosts = auth()->user()->Followed;
     }
      
-    return view('login', ['posts' => $posts,'myposts' => $myposts, 'Follows' => $followPosts]);
+    return view('index', ['posts' => $posts,'myposts' => $myposts, 'Follows' => $followPosts]);
 });
 
 
