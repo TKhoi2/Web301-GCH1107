@@ -10,12 +10,11 @@
     top:40px;
     right:-20px;
     ">
-        <form class="fix" action="#" method="post">
-            @csrf
-            @method('PATCH')
-            <button>Sửa bình luận</button>
-        </form>
-        <form class="del" action="#" method="post" >
+    
+        <div class="fix">
+            <button id="editcomment{{$comment->id}}" onclick="showeditcomment({{$comment->id}})">Sửa bình luận</button>
+        </div>
+        <form class="del" action="/delete/{{$comment->id}}" method="post" >
             @csrf
             @method('DELETE')
             <button>Xóa bình luận</button>

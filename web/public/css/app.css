@@ -12,6 +12,9 @@ a{
   color: black;
 }
 
+.hidden{
+  display: none;
+}
 .flex_col{
   display: flex;
   flex-direction: column;

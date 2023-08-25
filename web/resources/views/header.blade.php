@@ -50,7 +50,12 @@
                 <div class="verify floating flex_col align_center floating" href="#">
                     <a href="#" class="flex_col align_center gray_hover">
                         <img src="https://img.icons8.com/?size=512&id=uOoIUTYvxnso&format=png" alt="Đăng nhập" width="30px">
+                        @auth
+                        <p>{{auth()->user()->name}}</p>
+                        @else
                         <p>Đăng nhập</p>
+                        @endauth
+                        
                     </a>
                     {{-- floating login board --}}
                     @include('floatLogin')

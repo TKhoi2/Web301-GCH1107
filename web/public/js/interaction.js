@@ -22,3 +22,8 @@ function LikePost(i){
         $(`#label${i} p`).text((_, oldText) => parseInt(oldText) - 1);
     }
 }
+
+function showeditcomment(i){
+    $(`.editcomment${i}`).toggleClass('hidden');
+    
+}

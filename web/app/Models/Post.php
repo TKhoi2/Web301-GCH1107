@@ -18,4 +18,16 @@ class Post extends Model
     public function userfollowed() {
         return $this->hasMany(Follow::class, 'postId', 'id');
     }
+
+    public function postcomments() {
+        return $this->hasMany(Comment::class, 'postId', 'id');
+    }
+
+    public function postlikes() {
+        return $this->hasMany(Like::class, 'postId', 'id');
+    }
+
+    public function userliked() {
+        return $this->hasMany(Like::class, 'postId', 'id');
+    }
 }

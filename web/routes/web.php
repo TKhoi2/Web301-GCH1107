@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,6 @@ Route::get('/comment/{post}',function(Post $post){
 Route::get('/account', function () {
     return view('account');
 });
+Route::delete('/delete/{comment}',[CommentController::class, 'deleteComment'] );
+Route::put('/editcomment/{comment}',[CommentController::class, 'editComment'] );
+Route::get('/likepost/{post}',[PostController::class, 'createLike']);

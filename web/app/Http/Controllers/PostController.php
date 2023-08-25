@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\Follow;
 use App\Models\Comment;
@@ -74,8 +75,19 @@ class PostController extends Controller
         if(auth()->user()) {
             Comment::create(['userId'=>auth()->user()->id, 'postId'=>$post->id,'content'=> $incomingFields['commentcontent']]);
          }
-         return  redirect('/comment/'.$post->id);
+         return  redirect()->back();
     }
     
-
+    public function createLike(Post $post){
+        if(auth()->user()) {
+            $like = Like::where('userId', auth()->user()->id)->where('postId', $post->id)->exists();
+            if(!$like) {
+                Like::create(['userId'=>auth()->user()->id, 'postId'=>$post->id]);
+            } else {
+                $like = Like::where('userId', auth()->user()->id)->where('postId', $post->id)->delete();
+            }
+        } 
+        
+         return  redirect()->back();
+    }
 }
