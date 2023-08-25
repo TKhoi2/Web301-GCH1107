@@ -7,7 +7,7 @@
         @include('PostCommand')
         @endauth
     </div>
-    <div class="content" style="padding: 10px;">
+    <div class="content" style="padding: 11px;">
         {{-- title --}}
         <h2 class="title" ><b>{{$post->title}}</b></h2>
         {{-- content --}}
