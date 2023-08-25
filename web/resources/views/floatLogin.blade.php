@@ -7,11 +7,14 @@
     user-select: none;"
     >
         @auth
-        <h2>Chào mừng {{auth()->user()->name}}</h2>
+        <h2>Chào mừng </h2>
+        <h1>tên người dùng là {{auth()->user()->name}}</h1>
         <form action="/logout" method="POST">
             @csrf
             <button>Đăng xuất</button>
         </form>
+       
+
         @else 
             {{-- Đăng nhập --}}
         <form action="/login" class="login flex_col align_center justify_around visible" style="width:100%; height:70%" method="POST">

@@ -1,7 +1,9 @@
 @include('header')
 {{--  than web --}}
 <main class="body flex justify_center">
+    
     <div class="main_content">
+        <h2 style="margin-bottom: 10px">Chào mừng người dùng đến với Real<span style="color: rgb(0, 153, 255)">Book</h2>
         @auth
         <div style="border: 5px solid black; background-color:aqua; border-radius: 10px">
             <h2 style="color: orchid; text-align:center; background-color:aqua;">Tạo một Post mới</h2>
