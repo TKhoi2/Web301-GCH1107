@@ -36,7 +36,7 @@
                     <div class="notice floating gray_hover flex_col align_center" href="#">
                         <a class="flex_col align_center" href="#">
                             <img src="https://cdn-icons-png.flaticon.com/128/10016/10016918.png" alt="Theo dõi" width="30px">
-                            <span class="flex center"><b>5</b></span>
+                            <span class="flex center"><b>{{auth()->user()->followed->count()}}</b></span>
                             <p>Đang theo dõi</p>
                         </a>
                         {{-- floating followed --}}

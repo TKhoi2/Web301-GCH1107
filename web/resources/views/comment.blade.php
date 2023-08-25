@@ -25,11 +25,14 @@
                         @include('commentCommand')
                     </div>
                     <p class="content">{{$comment->content}}</p>
-                    <form class="hidden editcomment{{$comment->id}}" action="/editcomment/{{ $comment->id }}" method="POST">
+                    <form class="hidden editcomment " id="edits{{$comment->id}}" action="/editcomment/{{ $comment->id }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <textarea name="edited_comment">{{ $comment->comment }}</textarea>
-                        <button>Sửa</button>
+                        <div class="flex_col" style="gap: 10px">
+                            <textarea name="edited_comment">{{ $comment->comment }}</textarea>
+                            <button>Sửa</button>
+                        </div>
+                        
                     </form>
                 </div>
             @endforeach

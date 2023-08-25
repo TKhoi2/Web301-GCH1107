@@ -15,9 +15,11 @@ class CommentController extends Controller
         }
 
     public function editComment(Request $request, Comment $comment) {
-    
+        $incomingFields = $request->validate([
+            'edited_comment' => 'required'
+        ]);
         if ($comment->userId == auth()->user()->id) {
-            $comment->content = $request->input('edited_comment');
+            $comment->content = $incomingFields->input('edited_comment');
             $comment->save();
         }
     

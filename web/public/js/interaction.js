@@ -24,6 +24,6 @@ function LikePost(i){
 }
 
 function showeditcomment(i){
-    $(`.editcomment${i}`).toggleClass('hidden');
+    $(`#edits${i}`).toggleClass('hidden');
     
 }
