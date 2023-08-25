@@ -26,24 +26,24 @@ Route::get('/', function () {
         $followPosts = auth()->user()->Followed;
     }
      
-    return view('index', ['posts' => $posts,'myposts' => $myposts, 'Follows' => $followPosts]);
+    return view('index', ['Posts' => $posts, 'myposts' => $myposts, 'Follows' => $followPosts] );
 });
 
-
-Route::get('/signup', function () {
-    return view('signup');
-});
 //register
-Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('signup');
-Route::post('/signup', [UserController::class, 'signup']);
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/register', [UserController::class, 'signup']);
+
 //Login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
 // Blog post related routes
 Route::post('/create-post', [PostController::class, 'createPost']);
-Route::get('/edit-post/{post}', [PostController::class, 'showEditScreen']);
-Route::put('/edit-post/{post}', [PostController::class, 'actuallyUpdatePost']);
-Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
+// Route::get('/edit-post/{post}', [PostController::class, 'showEditScreen']);
+// Route::put('/edit-post/{post}', [PostController::class, 'actuallyUpdatePost']);
+// Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 Route::patch('/follow-post/{post}', [PostController::class, 'followPost']);
+Route::post('/upcomments/{post}', [PostController::class, 'createComments']);
+Route::get('/comment/{id}',function(Post $post){
+    return view('comment',['post'=>$post]);
+});

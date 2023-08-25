@@ -66,4 +66,14 @@ class PostController extends Controller
         return redirect('/');
     }
     
+    public function createComments(Post $post,Request $request){
+        $incomingFields = $request->validate([
+            'commentcontent' => 'required'
+        ]);
+        if(auth()->user()) {
+            Comment::create(['userId'=>auth()->user()->id, 'postId'=>$post->id,'content'=> $incomingFields['commentcontent']]);
+         }
+         return  redirect('/');
+    }
+
 }

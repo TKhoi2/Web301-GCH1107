@@ -5,11 +5,11 @@
     <div class="main_content">
         {{-- Post --}}
         @include('Posts')
-        <form action="" method="POST"  class="write_comment flex">
+        <form action="/upcomments" method="POST"  class="write_comment flex">
             @csrf
             <div class="avt_container" style="width:30px; height:30px"><img class="avt" src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"></div>
             <div style="width: 100%; gap:10px" class="flex_col">
-                <textarea name="hi" class="input_area" rows="4" oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';" placeholder="Viết gì đó cho bài viết này"></textarea>
+                <textarea name="commentcontent" class="input_area" rows="4" oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';" placeholder="Viết gì đó cho bài viết này"></textarea>
                 <button class="send">Đăng</button>
             </div>
         </form>

@@ -8,12 +8,6 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-
-    public function showRegistrationForm()
-        {
-            return view('signup');
-        }
-
     public function signup(Request $request) {
         $incomingFields = $request->validate([
             'name' => ['required', 'min:3', 'max:15', Rule::unique('users', 'name')],
@@ -25,7 +19,7 @@ class UserController extends Controller
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
         auth()->login($user);
-        return redirect('register');
-
+        return redirect('/');
+        
     }
 }

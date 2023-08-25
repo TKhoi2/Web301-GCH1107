@@ -14,13 +14,8 @@ class LoginController extends Controller
 
     public function logout() {
         auth()->logout();
-        return redirect('login');
+        return redirect('/');
     }
-
-    public function showLoginForm() {
-        return view('login');
-    }
-
 
     public function login(Request $request){
         $incomingFields = $request->validate([

@@ -53,8 +53,11 @@
                     </a>
                     {{-- floating login board --}}
                     @include('floatLogin')
+                    
+                </div>
             </div>
         </div>
+        
         {{-- chuyển hướng --}}
         <nav class="bottom_section flex" style="margin-top:20px; gap:10px ">
             <a href="/">Home <div class="underline"></div></a>
