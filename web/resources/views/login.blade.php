@@ -1,6 +1,16 @@
 @auth
-<h2>Chúc mừng bạn đã đăng nhập</h2>
-<h2>Xin chào người dùng: {{Auth::user()->name}}</h2>
+
+<link rel="stylesheet" href="assests/css/login.css">
+<nav class="navbar">
+  <div class="logo"><a href="/">RealBook</a></div>
+  <ul class="nav-links">
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+
+<h2 style="padding-top: 60px">Xin chào người dùng: {{Auth::user()->name}}</h2>
   <div style="border: 3px solid black;">
     <h2>Tạo 1 bài viết mới</h2>
     <form action="/create-post" method="POST">
