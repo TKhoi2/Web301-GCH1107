@@ -16,22 +16,22 @@
         <img src="{{$post->picture}}"> 
     </div>
     <div class="action flex align_center">
+        @auth
         <form action="/likepost/{{$post->id}}" class="flex_col align_center">
             <label id="label{{ $post->id }}" class="flex align_center" for="like{{ $post->id }}"><img src="https://img.icons8.com/?size=512&id=581&format=png" alt="" width="20px"><p>{{$post->postlikes->count()}}</p></label>
         
             <button class="like flex center gray_hover" id="like{{ $post->id }}" onclick="LikePost({{ $post->id }})">
-                @auth
-                    @if($post->userliked->contains('postId', auth()->user()->id))
-                    <div class="img liked" style="transform:scaleX(-1)" ></div>
-                    @else
-                    <div class="img" style="transform:scaleX(-1)" ></div>
-                    @endif
+                @if($post->userliked->contains('userId', auth()->user()->id))
+                <div class="img liked" style="transform:scaleX(-1)" ></div>
                 @else
                 <div class="img" style="transform:scaleX(-1)" ></div>
-                @endauth
+                @endif
                 Thích
             </button>
         </form>
+
+        @endauth
+
         <div class="flex_col align_center">
             <label class="flex align_center" for="comment{{ $post->id }}"><img src="https://img.icons8.com/?size=512&id=82768&format=png" alt="" width="20px">{{$post->postcomments->count()}} </label>
             <a href="/comment/{{ $post->id }}" class="comment flex center gray_hover"><img src="https://img.icons8.com/?size=512&id=38977&format=png" width="25px" id="comment{{ $post->id }}">Bình luận</a>

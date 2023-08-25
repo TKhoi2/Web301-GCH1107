@@ -22,7 +22,11 @@
                         <div class="avt_container" style="width:30px;"><img class="avt" src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"></div>
                         <p class="name mr-20"><b>{{$comment->user->name}}</b></p>
                         <p class="mr-20" style="font-size:0.7rem">4 ngày trước</p>
+                        @auth
+                        @if($comment->user->id === auth()->user()->id)
                         @include('commentCommand')
+                        @endif
+                        @endauth
                     </div>
                     <p class="content">{{$comment->content}}</p>
                     <form class="hidden editcomment " id="edits{{$comment->id}}" action="/editcomment/{{ $comment->id }}" method="POST">
