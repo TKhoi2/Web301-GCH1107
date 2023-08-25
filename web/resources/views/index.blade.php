@@ -9,6 +9,7 @@
                 @csrf
                 <input type="text" name="title" placeholder="post title">
                 <textarea name="body" placeholder="body content..."></textarea>
+                <input type="text" name="picture" placeholder="link ảnh...">
                 <button>Lưu Post</button>
             </form>
         </div>
