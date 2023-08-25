@@ -4,13 +4,15 @@
     <div class="main_content">
         @auth
         <div style="border: 3px solid black;">
-            <h2>Tạo một Post mới</h2>
-            <form action="/create-post" method="POST">
+            <h2 style="color: orchid; text-align:center">Tạo một Post mới</h2>
+            <form class="flex_col center"  action="/create-post" method="POST">
                 @csrf
-                <input type="text" name="title" placeholder="post title">
-                <textarea name="body" placeholder="body content..."></textarea>
-                <input type="text" name="picture" placeholder="link ảnh...">
-                <button>Lưu Post</button>
+                <div class="flex_col" style="width: 70%; gap: 10px">
+                    <input type="text" name="title" placeholder="Tiêu đề">
+                    <textarea name="body" placeholder="Viết gì đây nhỉ..." style="resize: none" oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';" ></textarea>
+                    <input type="text" name="picture" placeholder="link ảnh...">
+                    <button>Lưu Post</button>
+                </div>
             </form>
         </div>
 

@@ -20,12 +20,17 @@
             <label id="label{{ $post->id }}" class="flex align_center" for="like{{ $post->id }}"><img src="https://img.icons8.com/?size=512&id=581&format=png" alt="" width="20px"><p>{{$post->postlikes->count()}}</p></label>
         
             <button class="like flex center gray_hover" id="like{{ $post->id }}" onclick="LikePost({{ $post->id }})">
-                @if($post->userliked->contains('postId', auth()->user()->id))
-                <div class="img liked" style="transform:scaleX(-1)" ></div>
+                @auth
+                    @if($post->userliked->contains('postId', auth()->user()->id))
+                    <div class="img liked" style="transform:scaleX(-1)" ></div>
+                    @else
+                    <div class="img" style="transform:scaleX(-1)" ></div>
+                    @endif
                 @else
                 <div class="img" style="transform:scaleX(-1)" ></div>
-                @endif
-                Thích</button>
+                @endauth
+                Thích
+            </button>
         </form>
         <div class="flex_col align_center">
             <label class="flex align_center" for="comment{{ $post->id }}"><img src="https://img.icons8.com/?size=512&id=82768&format=png" alt="" width="20px">{{$post->postcomments->count()}} </label>
