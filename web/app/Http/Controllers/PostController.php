@@ -24,11 +24,14 @@ class PostController extends Controller
 
         $incomingFields = $request->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'picture' => 'required',
+
         ]);
 
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
+        $incomingFields['picture'] = strip_tags($incomingFields['picture']);
 
         $post->update($incomingFields);
         return redirect('/');
