@@ -24,7 +24,7 @@
         @if($post->user->id === auth()->user()->id)
             <form class="fix" action="/edit-post/{{ $post->id }}" method="post">
                 @csrf
-                @method('PATCH')
+                @method('PATCH')          
                 <button>Sửa bài viết</button>
             </form>
         
