@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&family=Roboto:wght@400;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.flex_col{
+  display: flex;
+  flex-direction: column;
+}
+.flex{
+  display: flex;
+}
+.flex_wrap{
+  flex-wrap: wrap;
+}
+.align_center{
+  align-items: center;
+}
+.align_end{
+  align-items: end;
+}
+.justify_center{
+  justify-content: center;
+}
+.justify_end{
+  justify-content: end;
+}
+.justify_between{
+  justify-content: space-between;
+}
+.justify_around{
+  justify-content: space-around;
+}
+.center{
+  justify-content: center;
+  align-items: center;
+}
+.mr-20{
+  margin-left:20px;
+}
+main{
+  display: flex;
+  min-height: 49vh;
+  flex: 1;
+}
+.fw{
+  width: 100%;
+}
+.fh{
+  height: 100%;
+}
+.full_container{
+  width: 100%;
+  height: 100%;
+}
+.floating{
+  position: relative;
+}
+.floating .floating_container{
+  position: absolute;
+  overflow: hidden;
+
+  transform: scaleY(0);
+  transition: all 0.3s ease;
+  transform-origin: top;
+  border: 2px solid rgba(128, 128, 128, 0.46);
+  border-radius: 10px;
+  z-index: 999;
+}
+.floating:hover .floating_container, .floating:focus-within .floating_container{
+  display:flex;
+  transform:scaleY(1);  
+}
+
+/* scrollbar for floating menu */
+.floating .floating_container .floating_menu{
+  overflow-y: auto;
+  width: 100%;
+}
+.floating .floating_container .floating_menu::-webkit-scrollbar{
+  width: 5px;
+}
+.floating .floating_container .floating_menu::-webkit-scrollbar-track {
+  background-color: #d1d1d1;
+}
+.floating .floating_container .floating_menu::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 153, 255); 
+}
+.floating .floating_container .floating_menu::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(3, 125, 207); 
+}
+
+/* inherit from menu */
+.invisible{
+  display: none !important;
+  animation: scroll1 0.3s ease forwards;
+  transform-origin: right;
+}
+.visible{
+  display: flex !important;
+  animation: scroll2 0.3s ease forwards;
+  transform-origin: right;
+}
+
+/* anim 2 lần vì html bảo thế */
+@keyframes scroll1 {
+  0%{
+    transform: scaleX(0);
+  }
+  100%{
+    transform: scaleX(1);
+  }
+}
+@keyframes scroll2 {
+  0%{
+    transform: scaleX(0);
+  }
+  100%{
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,79 @@
+/* command style */
+.command .command_icon_container{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+:root{
+    --menu_icon_width:22px;
+    --menu_icon_height:3px
+}
+.command .command_icon::before{
+    content: "";
+    position: absolute;
+    width: var(--menu_icon_width);
+    height: var(--menu_icon_height);
+    background-color: black;
+    border-radius: 10px;
+    transform: translate(0,-7px);
+    transition: transform 0.3s ease;
+}
+.command .command_icon{
+    position: absolute;
+    width: var(--menu_icon_width);
+    height: var(--menu_icon_height);
+    background-color: black;
+    border-radius: 10px;
+}
+.command .command_icon::after{
+    content: "";
+    position: absolute;
+    width: var(--menu_icon_width);
+    height: var(--menu_icon_height);
+    background-color: black;
+    border-radius: 10px;
+    transform: translate(0,7px);
+    transition: transform 0.3s ease;
+}
+.command .floating_container{
+    display: none !important;
+    opacity: 0 !important;
+    transform:scaleY(0) !important; 
+}
+/* command button when clicked */
+.clicked .floating_container{
+    display: flex !important;
+    opacity: 1 !important;
+    transform:scaleY(1) !important; 
+}
+.clicked .command_icon::before{
+    transform: translate(0,0) rotate(-45deg);
+    visibility:visible;
+
+}
+.clicked .command_icon{
+    visibility:hidden;
+}
+.clicked .command_icon::after{
+    transform: translate(0,0) rotate(45deg);
+    visibility:visible;
+
+}
+
+.command button{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.command .fix:hover button{
+    border: 1px solid blue;
+    background-color:aquamarine;
+    cursor: pointer;
+}
+.command .del:hover button{
+    border: 1px solid rgb(87, 0, 0);
+    background-color: red;
+    cursor: pointer;
+}

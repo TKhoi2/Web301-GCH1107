@@ -1,0 +1,65 @@
+#top_page_header{
+    padding: 4vh 4vw 0;
+    background-color: aquamarine;
+}
+.gray_hover:hover{
+    background-color: rgba(82, 171, 249, 0.163) !important;
+    cursor: pointer;
+}
+.user_box .notice{
+    margin-right: 20px;
+    position: relative;
+}
+.notice span{
+    position: absolute;
+    top: -5px;
+    right: 20%;
+    background-color: red;
+    width: 23px;
+    height: 23px;
+    border-radius:500px;
+}
+.notice .notification{
+    padding:10px;
+}
+/* đáy của header */
+#top_page_header .bottom_section a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+}
+#top_page_header .bottom_section a .underline{
+    background-color: black;
+    border-radius: 500px;
+    width: 100%;
+    height: 10%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+#top_page_header .bottom_section a:hover .underline{
+    transform: scaleX(1);
+}
+
+.verify .label{
+    width: 70%;
+}
+.verify input{
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 2px;
+}
+.verify button{
+    width: 80px;
+    height: 40px;
+    background-color:aquamarine;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.verify button:hover{
+    background-color: rgb(113, 222, 185);
+    cursor: pointer;
+}
