@@ -67,7 +67,6 @@
         {{-- chuyển hướng --}}
         <nav class="bottom_section flex" style="margin-top:20px; gap:10px ">
             <a href="/">Home <div class="underline"></div></a>
-            <a href="#">Trang cá nhân <div class="underline"></div></a>
             <a href="#footer">Liên hệ <div class="underline"></div></a>
         </nav>
     </header>
