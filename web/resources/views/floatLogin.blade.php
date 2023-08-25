@@ -34,7 +34,7 @@
             <h1>Đăng Ký</h1>
             <div class="flex_col label">
                 <label for="username">Tên đăng Ký</label>
-                <input type="text" id="username" name="username" placeholder="User Name">
+                <input type="text" id="username" name="name" placeholder="User Name">
             </div>
             <div class="flex_col label">
                 <label for="email">Email</label>

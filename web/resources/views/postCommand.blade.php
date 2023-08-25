@@ -11,19 +11,22 @@
     right:-20px;
     user-select: none;
     ">
+        
         <form class="fix" action="#" method="post">
             @csrf
             @method('PATCH')
             <button>Sửa bài viết</button>
         </form>
-        <form class="fix" action="#" method="post">
+        <form class="fix" action="/follow-post/{{ $post->id }}" method="post">
             @csrf
-            <button>Theo dõi</button>
+            @method('PATCH')
+            @if($post->userfollowed->contains('postId', auth()->user()->id))
+                <button>Hủy Theo dõi</button>
+            @else
+                <button>Theo dõi</button>
+            @endif
         </form>
-        <form class="fix" action="#" method="post">
-            @csrf
-            <button>Bỏ theo dõi</button>
-        </form>
+        
         <form class="del" action="#" method="post" >
             @csrf
             @method('DELETE')

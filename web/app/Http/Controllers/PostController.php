@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Follow;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -73,7 +74,8 @@ class PostController extends Controller
         if(auth()->user()) {
             Comment::create(['userId'=>auth()->user()->id, 'postId'=>$post->id,'content'=> $incomingFields['commentcontent']]);
          }
-         return  redirect('/');
+         return  redirect('/comment/'.$post->id);
     }
+    
 
 }

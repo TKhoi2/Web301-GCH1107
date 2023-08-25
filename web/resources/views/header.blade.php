@@ -21,28 +21,29 @@
 
 
             <div class="user_box flex">
-                {{-- thông báo --}}
-                <div class="notice floating gray_hover flex_col align_center" href="#">
-                    <a class="flex_col align_center" href="#">
-                        <img src="https://img.icons8.com/?size=512&id=16008&format=png" alt="Thông báo" width="30px">
-                        <span class="flex center"><b>50</b></span>
-                        <p>Thông báo</p>
-                    </a>
-                    {{-- floating notice --}}
-                    @include('floatNotice')
-                </div>
-
-
-                {{-- followed --}}
-                <div class="notice floating gray_hover flex_col align_center" href="#">
-                    <a class="flex_col align_center" href="#">
-                        <img src="https://cdn-icons-png.flaticon.com/128/10016/10016918.png" alt="Theo dõi" width="30px">
-                        <span class="flex center"><b>5</b></span>
-                        <p>Đang theo dõi</p>
-                    </a>
-                    {{-- floating followed --}}
-                    @include('floatFollowed')
-                </div>
+                @auth
+                    {{-- thông báo --}}
+                    <div class="notice floating gray_hover flex_col align_center" href="#">
+                        <a class="flex_col align_center" href="#">
+                            <img src="https://img.icons8.com/?size=512&id=16008&format=png" alt="Thông báo" width="30px">
+                            <span class="flex center"><b>50</b></span>
+                            <p>Thông báo</p>
+                        </a>
+                        {{-- floating notice --}}
+                        @include('floatNotice')
+                    </div>
+                    {{-- followed --}}
+                    <div class="notice floating gray_hover flex_col align_center" href="#">
+                        <a class="flex_col align_center" href="#">
+                            <img src="https://cdn-icons-png.flaticon.com/128/10016/10016918.png" alt="Theo dõi" width="30px">
+                            <span class="flex center"><b>5</b></span>
+                            <p>Đang theo dõi</p>
+                        </a>
+                        {{-- floating followed --}}
+                        @include('floatFollowed')
+                    </div>
+                @endauth
+                
 
 
                 {{-- Tài khoản --}}

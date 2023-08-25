@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -20,13 +21,13 @@ use App\Http\Controllers\LoginController;
 Route::get('/', function () {
     $posts = Post::orderBy('created_at', 'desc')->get();
     $myposts = []; 
-    $followPosts = [];
+    
     if (auth()->check()) {
         $myposts = auth()->user()->usersCoolPosts()->latest()->get();
-        $followPosts = auth()->user()->Followed;
+
     }
      
-    return view('index', ['Posts' => $posts, 'myposts' => $myposts, 'Follows' => $followPosts] );
+    return view('index', ['Posts' => $posts, 'myposts' => $myposts] );
 });
 
 //register
@@ -44,6 +45,7 @@ Route::post('/create-post', [PostController::class, 'createPost']);
 // Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 Route::patch('/follow-post/{post}', [PostController::class, 'followPost']);
 Route::post('/upcomments/{post}', [PostController::class, 'createComments']);
-Route::get('/comment/{id}',function(Post $post){
-    return view('comment',['post'=>$post]);
+Route::get('/comment/{post}',function(Post $post){
+    $comments = Comment::where('postId',$post->id)->get();
+    return view('comment',['post'=>$post,'comments'=>$comments]);
 });
