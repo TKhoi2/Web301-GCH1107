@@ -13,7 +13,7 @@
         <h2 class="title"><b>{{$post->title}}</b></h2>
         {{-- content --}}
         <p class="body">{{$post->body}}</p>
-        <img src="https://images.unsplash.com/photo-1613336026275-d6d473084e85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt=""> 
+        <img src="{{$post->picture}}"> 
     </div>
     <div class="action flex align_center">
         <form action="/likepost/{{$post->id}}" class="flex_col align_center">
