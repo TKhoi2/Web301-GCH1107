@@ -22,14 +22,14 @@
             @endif
         </form>
         @if($post->user->id === auth()->user()->id)
-            <form class="fix" action="#" method="post">
+            <form class="fix" action="/edit-post/{{ $post->id }}" method="post">
                 @csrf
                 @method('PATCH')
                 <button>Sửa bài viết</button>
             </form>
         
         
-            <form class="del" action="#" method="post" >
+            <form class="del" action="/delete-post/{{ $post->id }}" method="post" >
                 @csrf
                 @method('DELETE')
                 <button>Xóa bài viết</button>

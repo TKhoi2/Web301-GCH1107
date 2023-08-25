@@ -22,7 +22,7 @@
 
             <div class="user_box flex">
                 @auth
-                    {{-- thông báo --}}
+                    {{-- thông báo
                     <div class="notice floating gray_hover flex_col align_center" href="#">
                         <a class="flex_col align_center" href="#">
                             <img src="https://img.icons8.com/?size=512&id=16008&format=png" alt="Thông báo" width="30px">
@@ -30,8 +30,8 @@
                             <p>Thông báo</p>
                         </a>
                         {{-- floating notice --}}
-                        @include('floatNotice')
-                    </div>
+                        {{-- @include('floatNotice')
+                    </div>  --}}
                     {{-- followed --}}
                     <div class="notice floating gray_hover flex_col align_center" href="#">
                         <a class="flex_col align_center" href="#">

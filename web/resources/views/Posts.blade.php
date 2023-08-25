@@ -1,7 +1,7 @@
 
 <div id="post{{ $post->id }}" class="post" style="border: 5px solid black; background-color:rgb(197, 239, 239); border-radius: 10px; margin-top:10px; margin-bottom:10px">
     <div class="user flex align_center" >
-        <div class="avt_container" style="width:50px; padding: 10px 0px 10px 10px;"><img class="avt" src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"></div>
+        <div class="avt_container" style="width:50px; padding: 10px 0px 10px 10px;"><img class="avt" src="https://png.pngtree.com/png-vector/20190623/ourlarge/pngtree-accountavataruser--flat-color-icon--vector-icon-banner-templ-png-image_1491720.jpg"></div>
         <p class="name mr-20" ><b>Được viết Bởi {{ $post->user->name}}</b></p>
         @auth
         @include('PostCommand')
