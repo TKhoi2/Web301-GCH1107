@@ -49,3 +49,8 @@ Route::get('/comment/{post}',function(Post $post){
     $comments = Comment::where('postId',$post->id)->get();
     return view('comment',['post'=>$post,'comments'=>$comments]);
 });
+
+//account
+Route::get('/account', function () {
+    return view('account');
+});
