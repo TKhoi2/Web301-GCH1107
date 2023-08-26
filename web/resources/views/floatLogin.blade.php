@@ -1,7 +1,7 @@
 <div class="floating_container flex_col center justify_between" style="width:400px; height:70vh; background-color:rgb(255, 255, 255); top:50px; right:0; user-select: none;" >
         @auth
         <h2>Tên người dùng là: {{auth()->user()->name}}</h2>
-        <h2>Email {{auth()->user()->email}}</h2>
+        <h2>Email: {{auth()->user()->email}}</h2>
         <form action="/logout" method="POST">
             @csrf
             <button>Đăng xuất</button>
